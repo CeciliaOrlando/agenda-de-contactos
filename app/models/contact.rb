@@ -6,9 +6,9 @@ class Contact < ApplicationRecord
   has_one :category
   has_one_attached :photo
 
+  accepts_nested_attributes_for :address  #te permite manejar los atributos del modelo Address directamente a través del modelo User,
+
   # Validations
-  validates :full_name, presence: true
-  validates :nickname, presence: true
-  validates :birthday, presence: true
-  validates :email, presence: true
+  validates :full_name, :email, :nickname, :birthday, presence: true
+
 end

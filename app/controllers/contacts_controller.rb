@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = Contact.find(params[:id]) 
+    @contact = Contact.find(params[:id])
   end
 
   def new
@@ -28,6 +28,7 @@ class ContactsController < ApplicationController
   end
 
   def edit
+    @contact = Contact.find(params[:id]) if @contact.nil?
   end
 
   def update

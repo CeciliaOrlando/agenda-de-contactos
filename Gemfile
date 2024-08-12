@@ -68,7 +68,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
+# Gemas agregadas para el proyecto 
 gem 'devise'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 gem 'gmaps4rails'
+gem 'faker'

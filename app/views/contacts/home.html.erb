@@ -1,0 +1,12 @@
+<h1>Contactos</h1>
+<!-- app/views/sessions/new.html.erb -->
+<h1>Iniciar sesión</h1>
+<%= form_with url: session_path, method: :post, local: true do %>
+  <%= label_tag :email, 'Correo electrónico' %>
+  <%= text_field_tag :email %>
+  <%= label_tag :password, 'Contraseña' %>
+  <%= password_field_tag :password %>
+  <%= submit_tag 'Iniciar sesión' %>
+<% end %>
+
+<%= link_to 'Registrarse', new_user_registration_path %>
