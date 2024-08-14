@@ -9,7 +9,7 @@ Faker::UniqueGenerator.clear
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.unique.email,
-    password: 'password1'
+    password: '123456'
   )
 
   puts "Created user: #{user.email}"
@@ -35,7 +35,8 @@ Faker::UniqueGenerator.clear
       state: Faker::Address.state_abbr,
       postal_code: Faker::Address.zip_code,
       latitude: Faker::Address.latitude,
-      longitude: Faker::Address.longitude
+      longitude: Faker::Address.longitude,
+      country: Faker::Address.country
     }
 
     puts "Address attributes: #{address_attributes.inspect}"

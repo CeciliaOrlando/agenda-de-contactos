@@ -3,11 +3,9 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: %i[show edit update destroy]
 
   def index
-    @contacts = current_user.contacts.includes(:phone_numbers, :address, :category).all
-    @contacts = @contacts.joins(:category).where(categories: { family: true }) if params[:family]
-    @contacts = @contacts.joins(:category).where(categories: { friend: true }) if params[:friend]
-    @contacts = @contacts.joins(:category).where(categories: { customer: true }) if params[:customer]
-    @contacts = @contacts.joins(:category).where(categories: { supplier: true }) if params[:supplier]
+    @contacts = Contact.all
+    @contacts = Contact.order(:full_name).page(params[:page]).per(5)
+    @contacts = @contacts.where('full_name LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def show

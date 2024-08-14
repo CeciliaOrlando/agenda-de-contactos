@@ -1,22 +1,15 @@
-<h1>Contactos</h1>
-<%= form_with url: contacts_path, method: :get, local: true do %>
-  <%= check_box_tag :family, 'true', params[:family] %>
-  <%= label_tag :family, 'Familia' %>
-  <%= check_box_tag :friend, 'true', params[:friend] %>
-  <%= label_tag :friend, 'Amigo' %>
-  <%= check_box_tag :customer, 'true', params[:customer] %>
-  <%= label_tag :customer, 'Cliente' %>
-  <%= check_box_tag :supplier, 'true', params[:supplier] %>
-  <%= label_tag :supplier, 'Proveedor' %>
-  <%= submit_tag 'Filtrar' %>
-<% end %>
-<%= link_to 'Nuevo Contacto', new_contact_path %>
-<ul>
-  <% @contacts.each do |contact| %>
-    <li>
-      <%= link_to contact.full_name, contact_path(contact) %>
-      <%= image_tag contact.photo if contact.photo.attached? %>
-    </li>
-  <% end %>
-</ul>
+<h1>Iniciar sesión</h1>
 
+<%= form_with url: session_path, method: :post, local: true do %>
+  <div>
+    <%= label_tag :email, 'Correo electrónico' %>
+    <%= text_field_tag :email %>
+  </div>
+  <div>
+    <%= label_tag :password, 'Contraseña' %>
+    <%= password_field_tag :password %>
+  </div>
+  <div>
+    <%= submit_tag 'Iniciar sesión' %>
+  </div>
+<% end %>

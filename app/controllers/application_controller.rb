@@ -18,4 +18,9 @@ class ApplicationController < ActionController::Base
   # usuario para acceder a la página de inicio de sesión y Devise intenta
   # autenticar al usuario para acceder a la página de inicio de sesión.
 
+
+  def after_sign_in_path_for(resource) # Redirige al índice de contactos
+    contacts_path
+    contacts_
+   end
 end
